@@ -41,3 +41,16 @@ void WordLadder::displayResult(vector<string> sequence)
 
 	cout << "There is one, I promise.\n";
 }
+
+int WordLadder::findInVector(vector<string> vec, string str)
+{
+	for (unsigned int i = 0; i < vec.size(); i++)
+	{
+		if (vec[i] == str)
+		{
+			return i;
+		}
+	}
+
+	return -1;
+}
