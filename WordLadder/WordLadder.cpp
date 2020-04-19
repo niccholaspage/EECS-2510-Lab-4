@@ -24,7 +24,6 @@ WordLadder::WordLadder(string lexiconFileName, int len)
 			lexicon.insert(word);
 		}
 	}
-
 }
 
 vector<string> WordLadder::getMinLadder(string start, string end)
