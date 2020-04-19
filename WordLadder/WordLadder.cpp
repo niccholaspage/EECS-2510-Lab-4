@@ -31,3 +31,13 @@ vector<string> WordLadder::getMinLadder(string start, string end)
 {
 	return vector<string>();
 }
+
+void WordLadder::displayResult(vector<string> sequence)
+{
+	if (sequence.empty())
+	{
+		cout << "Word Ladder is empty - No Solution\n";
+	}
+
+	cout << "There is one, I promise.\n";
+}

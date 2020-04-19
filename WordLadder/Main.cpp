@@ -44,7 +44,7 @@ int main(int argc, char* argv[])
 	
 	vector<string> minLadder = wordLadder.getMinLadder(firstWord, lastWord);
 
-	cout << "Min Ladder:\n";
+	wordLadder.displayResult(minLadder);
 
 	auto elapsed = clock() - start;
 
