@@ -44,13 +44,14 @@ void WordLadder::displayResult(vector<string> sequence)
 
 int WordLadder::findInVector(vector<string> vec, string str)
 {
-	for (unsigned int i = 0; i < vec.size(); i++)
-	{
-		if (vec[i] == str)
-		{
-			return i;
-		}
-	}
+	vector<string>::iterator it = find(vec.begin(), vec.end(), str);
 
-	return -1;
+	if (it != vec.end())
+	{
+		return distance(vec.begin(), it);
+	}
+	else
+	{
+		return -1;
+	}
 }
