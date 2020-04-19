@@ -25,5 +25,9 @@ WordLadder::WordLadder(string lexiconFileName, int len)
 		}
 	}
 
-	cout << "good to go\n";
+}
+
+vector<string> WordLadder::getMinLadder(string start, string end)
+{
+	return vector<string>();
 }

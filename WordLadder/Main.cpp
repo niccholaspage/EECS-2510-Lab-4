@@ -4,6 +4,16 @@
 
 using namespace std;
 
+void convertToUppercase(string& str)
+{
+	// Since we don't care about the casing for our words,
+	// we loop through all of the word,
+	for (unsigned int i = 0; i < str.length(); i++)
+	{
+		str[i] = toupper(str[i]); // and we set each character to the uppercase version of itself.
+	}
+}
+
 int main(int argc, char* argv[])
 {
 	if (argc < 4)
@@ -28,6 +38,13 @@ int main(int argc, char* argv[])
 	auto start = clock();
 
 	WordLadder wordLadder(dictionaryFilePath, firstWord.length());
+
+	convertToUppercase(firstWord);
+	convertToUppercase(lastWord);
+	
+	vector<string> minLadder = wordLadder.getMinLadder(firstWord, lastWord);
+
+	cout << "Min Ladder:\n";
 
 	auto elapsed = clock() - start;
 
