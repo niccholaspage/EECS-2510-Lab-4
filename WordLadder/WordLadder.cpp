@@ -47,8 +47,12 @@ bool WordLadder::isWord(string str)
 	//TODO: Ask if we should use this method or some other way.
 	set<string>::iterator it = find(lexicon.begin(), lexicon.end(), str);
 
+	return it != lexicon.end();
+}
+
 int WordLadder::findInVector(vector<string> vec, string str)
 {
+	//TODO: Ask if we should use this method or indexing.
 	vector<string>::iterator it = find(vec.begin(), vec.end(), str);
 
 	if (it != vec.end())
