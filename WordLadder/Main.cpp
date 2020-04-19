@@ -4,22 +4,24 @@ using namespace std;
 
 int main(int argc, char* argv[])
 {
-    if (argc < 4) {
-        cout << "Not enough arguments provided. Example usage:\n";
-        cout << "WordLadder dictionary_file_path first_word last_word\n";
+	if (argc < 4)
+	{
+		cout << "Not enough arguments provided. Example usage:\n";
+		cout << "WordLadder dictionary_file_path first_word last_word\n";
 
-        return 0;
-    }
+		return 0;
+	}
 
-    cout << "Hello World!\n";
+	string dictionaryFilePath = argv[1];
+	string firstWord = argv[2];
+	string lastWord = argv[3];
 
-    cout << "Argument 0: " << argv[0] << "\n";
+	if (firstWord.length() != lastWord.length())
+	{
+		cout << "The first and final word do not have the same length.\n";
 
-    cout << "Argument 1 (name of dict file): " << argv[1] << "\n";
+		return 0;
+	}
 
-    cout << "Argument 2 (first word in the ladder): " << argv[2] << "\n";
-
-    cout << "Argument 3 (last word in the ladder): " << argv[3] << "\n";
-
-    return 0;
+	return 0;
 }
