@@ -42,6 +42,11 @@ void WordLadder::displayResult(vector<string> sequence)
 	cout << "There is one, I promise.\n";
 }
 
+bool WordLadder::isWord(string str)
+{
+	//TODO: Ask if we should use this method or some other way.
+	set<string>::iterator it = find(lexicon.begin(), lexicon.end(), str);
+
 int WordLadder::findInVector(vector<string> vec, string str)
 {
 	vector<string>::iterator it = find(vec.begin(), vec.end(), str);
