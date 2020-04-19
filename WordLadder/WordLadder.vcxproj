@@ -148,6 +148,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="WordLadder.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="WordLadder.h" />

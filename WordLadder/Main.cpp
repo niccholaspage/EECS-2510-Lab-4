@@ -1,4 +1,6 @@
 #include <iostream>
+#include "WordLadder.h"
+#include "ctime"
 
 using namespace std;
 
@@ -22,6 +24,14 @@ int main(int argc, char* argv[])
 
 		return 0;
 	}
+
+	auto start = clock();
+
+	WordLadder wordLadder(dictionaryFilePath, firstWord.length());
+
+	auto elapsed = clock() - start;
+
+	cout << "Elapsed time: " << elapsed / 1000.0 << " seconds.\n";
 
 	return 0;
 }
