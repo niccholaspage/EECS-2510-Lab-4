@@ -30,6 +30,12 @@ WordLadder::WordLadder(string lexiconFileName, int len)
 vector<string> WordLadder::getMinLadder(string start, string end)
 {
 	vector<string> ladder;
+
+	if (!isWord(start) || !isWord(end))
+	{
+		return ladder;
+	}
+
 	vector<string> seenWords;
 	vector<string> predecessors;
 	list<string> queue;
