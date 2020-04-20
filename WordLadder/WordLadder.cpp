@@ -56,7 +56,7 @@ vector<string> WordLadder::getMinLadder(string start, string end)
 		{
 			if (findInVector(seenWords, s) == -1)
 			{
-				if (s == end)
+				if (s == end) // ??	
 				{
 					seenWords.push_back(s);
 					predecessors.push_back(qFront);
@@ -81,8 +81,8 @@ vector<string> WordLadder::getMinLadder(string start, string end)
 				// Add S and QFront to the lists of words seen and their predecessors
 				// Add S to the rear of the queue
 
-				cout << "here...\n";
-
+				seenWords.push_back(s);
+				predecessors.push_back(qFront);
 				queue.push_back(s);
 			}
 		}
