@@ -92,3 +92,26 @@ int WordLadder::findInVector(vector<string> vec, string str)
 		return -1;
 	}
 }
+
+int WordLadder::getHammingDistance(string str1, string str2)
+{
+	if (str1.length() != str2.length())
+	{
+		return -1;
+	}
+
+	int hammingDistance = 0;
+
+	int stringLength = str1.length();
+
+	for (int i = 0; i < stringLength; i++)
+	{
+		if (str1[i] != str2[i])
+		{
+			hammingDistance++;
+		}
+	}
+
+
+	return hammingDistance;
+}
