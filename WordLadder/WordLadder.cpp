@@ -66,9 +66,23 @@ bool WordLadder::isWord(string str)
 
 int WordLadder::findInVector(vector<string> vec, string str)
 {
-	//TODO: Ask if we should use this method or indexing.
+	// This method tries to find the given string inside of
+	// the given vector. If it is found in the vector, the
+	// index of the string is returned. Otherwise, -1 is returned.
+	//
+	// We utilize std::find and start from the beginning
+	// of the vector and go to the end, looking for the
+	// given string. If std::find is able to find the
+	// string, it will return an iterator located at the
+	// index of the given string inside of the vector.
 	vector<string>::iterator it = find(vec.begin(), vec.end(), str);
 
+	// At this point, our iterator will either point at
+	// the element in the vector, our string, or
+	// the end of the set. If it points to the end of the
+	// vector, we were not able to find the given word,
+	// so we return -1. Otherwise, it will
+	// return true, as we found the word.
 	if (it != vec.end())
 	{
 		return distance(vec.begin(), it);
