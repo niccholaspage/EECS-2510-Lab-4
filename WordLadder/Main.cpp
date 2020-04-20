@@ -16,9 +16,9 @@ void convertToUppercase(string& str)
 
 int main(int argc, char* argv[])
 {
-	if (argc < 4)
+	if (argc != 4)
 	{
-		cout << "Not enough arguments provided. Example usage:\n";
+		cout << "Wrong number of arguments provided. Example usage:\n";
 		cout << "WordLadder dictionary_file_path first_word last_word\n";
 
 		return 0;
