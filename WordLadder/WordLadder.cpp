@@ -56,35 +56,39 @@ vector<string> WordLadder::getMinLadder(string start, string end)
 		{
 			if (findInVector(seenWords, s) == -1)
 			{
-				if (s == end) // ??	
+				if (s == end)
 				{
 					seenWords.push_back(s);
 					predecessors.push_back(qFront);
 
-					int sIndex = findInVector(predecessors, s);
+					int sIndex = findInVector(seenWords, s);
 
-					for (int i = sIndex; i >= 0; i--)
+					string& word = predecessors[sIndex];
+
+					ladder.push_back(s);
+
+					while (word != start)
 					{
-						string& sPredecessor = predecessors[i];
+						ladder.insert(ladder.begin(), word);
 
-						ladder.push_back(sPredecessor);
+						sIndex = findInVector(seenWords, word);
+
+						word = predecessors[sIndex];
 					}
 
-					ladder.push_back(start);
+					ladder.insert(ladder.begin(), start);
 
 					return ladder;
 				}
-			}
-			else
-			{
-				// TODO: This never seems to get called...
-				// Add S and QFront to the lists of words seen and their predecessors
-				// Add S to the rear of the queue
+				else
+				{
+					seenWords.push_back(s);
+					predecessors.push_back(qFront);
 
-				seenWords.push_back(s);
-				predecessors.push_back(qFront);
-				queue.push_back(s);
+					queue.push_back(s);
+				}
 			}
+			
 		}
 	}
 
@@ -100,7 +104,7 @@ void WordLadder::displayResult(vector<string> sequence)
 		return;
 	}
 
-	cout << "A Shortest Word Ladder (" << sequence.size() << " steps) is: ";
+	cout << "A Shortest Word Ladder (" << sequence.size()- 1 << " steps) is: ";
 
 	int sequenceSize = sequence.size();
 
