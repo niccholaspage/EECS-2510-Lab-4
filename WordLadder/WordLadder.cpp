@@ -85,6 +85,8 @@ void WordLadder::displayResult(vector<string> sequence)
 	if (sequence.empty())
 	{
 		cout << "Word Ladder is empty - No Solution\n";
+
+		return;
 	}
 
 	cout << "A Shortest Word Ladder (" << sequence.size() << " steps) is: ";
