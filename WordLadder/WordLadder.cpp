@@ -71,8 +71,12 @@ vector<string> WordLadder::getMinLadder(string start, string end)
 			}
 			else
 			{
-				seenWords.push_back(s);
-				predecessors.push_back(qFront);
+				// TODO: This never seems to get called...
+				// Add S and QFront to the lists of words seen and their predecessors
+				// Add S to the rear of the queue
+
+				cout << "here...\n";
+
 				queue.push_back(s);
 			}
 		}
