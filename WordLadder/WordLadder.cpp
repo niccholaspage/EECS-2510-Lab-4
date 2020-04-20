@@ -152,3 +152,8 @@ bool WordLadder::isWordLadder(vector<string> sequence)
 
 	return true;
 }
+
+int WordLadder::getWordCount()
+{
+	return lexicon.size();
+}
