@@ -130,3 +130,25 @@ int WordLadder::getHammingDistance(string str1, string str2)
 
 	return hammingDistance;
 }
+
+bool WordLadder::isWordLadder(vector<string> sequence)
+{
+	if (sequence.size() < 2)
+	{
+		return false;
+	}
+
+	for (int i = 0; i < sequence.size() - 1; i++)
+	{
+		string& word = sequence[i];
+
+		string& nextWord = sequence[i + 1];
+
+		if (getHammingDistance(word, nextWord) != 1)
+		{
+			return false;
+		}
+	}
+
+	return true;
+}
