@@ -43,9 +43,24 @@ void WordLadder::displayResult(vector<string> sequence)
 
 bool WordLadder::isWord(string str)
 {
-	//TODO: Ask if we should use this method or some other way.
-	set<string>::iterator it = find(lexicon.begin(), lexicon.end(), str);
+	// This method checks to see if the given string
+	// is a word inside of the WordLadder's dictionary.
+	// If it is, true is returned.
+	//
+	// We utilize set::find, which starts from the beginning
+	// of the set and going to the end, looking for the
+	// given string. If set::find is able to find the
+	// string, it will return an iterator located at the
+	// index of the given string inside of the dictionary
+	// set.
+	set<string>::iterator it = lexicon.find(str);
 
+	// At this point, our iterator will either point at
+	// the element in the dictionary, our string, or
+	// the end of the set. If it points to the end of the
+	// set, we were not able to find the given word,
+	// so this will return false. Otherwise, it will
+	// return true, as we found the word.
 	return it != lexicon.end();
 }
 
