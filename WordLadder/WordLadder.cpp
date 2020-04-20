@@ -50,7 +50,7 @@ vector<string> WordLadder::getMinLadder(string start, string end)
 		{
 			if (findInVector(seenWords, s) == -1)
 			{
-				if (!ladder.empty() && ladder.back() == s)
+				if (s == end)
 				{
 					seenWords.push_back(s);
 					predecessors.push_back(qFront);
@@ -73,6 +73,7 @@ vector<string> WordLadder::getMinLadder(string start, string end)
 			{
 				seenWords.push_back(s);
 				predecessors.push_back(qFront);
+				queue.push_back(s);
 			}
 		}
 	}
