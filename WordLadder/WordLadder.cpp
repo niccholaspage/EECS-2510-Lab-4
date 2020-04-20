@@ -93,6 +93,21 @@ int WordLadder::findInVector(vector<string> vec, string str)
 	}
 }
 
+set<string> WordLadder::getNeighbors(string word)
+{
+	set<string> neighbors;
+
+	for (string dictWord : lexicon)
+	{
+		if (getHammingDistance(word, dictWord) == 1)
+		{
+			neighbors.insert(dictWord);
+		}
+	}
+
+	return neighbors;
+}
+
 int WordLadder::getHammingDistance(string str1, string str2)
 {
 	if (str1.length() != str2.length())
