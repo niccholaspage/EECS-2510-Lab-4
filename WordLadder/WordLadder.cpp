@@ -97,7 +97,7 @@ set<string> WordLadder::getNeighbors(string word)
 {
 	set<string> neighbors;
 
-	for (string dictWord : lexicon)
+	for (const string& dictWord : lexicon)
 	{
 		if (getHammingDistance(word, dictWord) == 1)
 		{
