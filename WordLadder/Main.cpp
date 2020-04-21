@@ -6,11 +6,16 @@ using namespace std;
 
 void convertToUppercase(string& str)
 {
-	// Since we don't care about the casing for our words,
-	// we loop through all of the word,
-	for (unsigned int i = 0; i < str.length(); i++)
+	//This method simply takes a given string
+	// and converts its characters to uppercase
+	// versions, if possible. It takes a string
+	// reference, and updates the characters of
+	// the reference instead of returning a new
+	// string, for slightly more efficient code.
+	//
+	for (unsigned int i = 0; i < str.length(); i++) // loop through each element of the string...
 	{
-		str[i] = toupper(str[i]); // and we set each character to the uppercase version of itself.
+		str[i] = toupper(str[i]); // and  set each character to the uppercase version of itself.
 	}
 }
 
@@ -41,7 +46,7 @@ int main(int argc, char* argv[])
 
 	convertToUppercase(firstWord);
 	convertToUppercase(lastWord);
-	
+
 	vector<string> minLadder = wordLadder.getMinLadder(firstWord, lastWord);
 
 	wordLadder.displayResult(minLadder);
