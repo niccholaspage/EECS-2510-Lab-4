@@ -1,6 +1,5 @@
 #include <iostream>
 #include "WordLadder.h"
-#include "ctime"
 
 using namespace std;
 
@@ -55,8 +54,6 @@ int main(int argc, char* argv[])
 		return 0; // We can't do anything with these word inputs, so we return, ending the program.
 	}
 
-	auto start = clock();
-
 	WordLadder wordLadder(dictionaryFilePath, firstWord.length());
 
 	convertToUppercase(firstWord);
@@ -65,10 +62,6 @@ int main(int argc, char* argv[])
 	vector<string> minLadder = wordLadder.getMinLadder(firstWord, lastWord);
 
 	wordLadder.displayResult(minLadder);
-
-	auto elapsed = clock() - start;
-
-	cout << "Elapsed time: " << elapsed / 1000.0 << " seconds.\n";
 
 	return 0;
 }
