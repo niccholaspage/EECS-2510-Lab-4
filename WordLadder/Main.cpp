@@ -1,3 +1,17 @@
+//==============================================================================================
+// Main.cpp - Word Ladder program
+//
+// This program implements an algorithm used to solve the word ladder game, which is a puzzle
+// game that begins with two words. The puzzle is solved by finding a ladder or chain of words
+// linking the two words together, where adjacent words in the chain can only differ by one
+// letter.
+//
+// Author:     Nicholas Nassar, University of Toledo
+// Class:      EECS 2510-001 Non-Linear Data Structures, Spring 2020
+// Instructor: Dr.Thomas
+// Date:       Apr 22, 2020
+// Copyright:  Copyright 2020 by Nicholas Nassar. All rights reserved.
+
 #include <iostream>
 #include "WordLadder.h"
 
