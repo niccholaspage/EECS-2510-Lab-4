@@ -54,14 +54,43 @@ int main(int argc, char* argv[])
 		return 0; // We can't do anything with these word inputs, so we return, ending the program.
 	}
 
+	// We now construct a WordLadder, passing in the file path
+	// to the dictionary as well as the length of the first and
+	// last words. If the constructor has issues opening our
+	// dictionary file, the program will exit, so we know that
+	// a WordLadder successfully being constructed means that we
+	// can continue and find our minimum word ladder.
+	//
 	WordLadder wordLadder(dictionaryFilePath, firstWord.length());
 
+	// We call convertToUppercase on both our first and last
+	// words. As seen in the comments for this method, it does
+	// not return a string -- it instead takes a reference
+	// to a string, and converts each character to an uppercase
+	// version of the character in place, so that firstWord
+	// and lastWord will both be fully uppercase. This is done
+	// because every word in the dictionary file is uppercase,
+	// and it makes it easier for us to check characters if they
+	// are all of uniform casing.
+	//
 	convertToUppercase(firstWord);
 	convertToUppercase(lastWord);
 
+	// We now retrieve the minimum word ladder, going from our first word
+	// to our last word. This will cause the WordLadder class to go loop
+	// the neighbors for the first word, checking them to find a connection
+	// that leads to the last word. If no connection can be found, an empty
+	// vector ends up getting returned.
+	//
 	vector<string> minLadder = wordLadder.getMinLadder(firstWord, lastWord);
 
+	// We now display our minimum word ladder. If the vector ends up
+	// being empty, the output will state that no solution was found.
+	// Otherwise, the shortest word ladder will be printed, with the number
+	// of steps required to get to the last word, and the list of each word
+	// we traversed through to get to the final word.
+	//
 	wordLadder.displayResult(minLadder);
 
-	return 0;
+	return 0; // We return 0, as we have done all we needed to do!
 }
