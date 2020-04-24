@@ -1,3 +1,23 @@
+//==============================================================================================
+// File: WordLadder.cpp - Word ladder implementation
+// c.f.: WordLadder.h
+//
+// This class implements an algorithm to solve the word ladder game.
+// See https://en.wikipedia.org/wiki/Word_ladder for a definition and history.
+//
+// When an instance of the class is constructed, it loads in words from a
+// file path into a dictionary. This dictionary will be used when finding
+// neighbors to words. This class can find the minimum word ladder between
+// starting and ending words and display the results of a word ladder,
+// showing outputting the steps taken between the beginning and ending
+// words.
+//
+// Author:     Nicholas Nassar, University of Toledo
+// Class:      EECS 2510-001 Non-Linear Data Structures, Spring 2020
+// Instructor: Dr.Thomas
+// Date:       Apr 22, 2020
+// Copyright:  Copyright 2020 by Nicholas Nassar. All rights reserved.
+
 #include "WordLadder.h"
 #include <fstream>
 #include <iostream>
@@ -5,13 +25,20 @@
 
 WordLadder::WordLadder(string lexiconFileName, int len)
 {
-	ifstream inputStream;
+	// The constructor for our word ladder. We need to
+	// intialize our lexicon with words from the given
+	// lexicon file name. We use the passed in length
+	// parameter to optimize the lexicon so that it
+	// only contains words with the same length.
+	//
+	ifstream inputStream; // We need an input stream to read our lexicon file
 
+	// Open the input stream with the lexicon file name as our path.
 	inputStream.open(lexiconFileName);
 
 	if (inputStream.fail())
 	{
-		cout << "Unable to open dictionary file.\n";
+		cout << "Unable to open lexicon file.\n";
 
 		exit(0);
 	}
