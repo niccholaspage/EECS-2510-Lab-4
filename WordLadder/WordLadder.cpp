@@ -36,20 +36,27 @@ WordLadder::WordLadder(string lexiconFileName, int len)
 	// Open the input stream with the lexicon file name as our path.
 	inputStream.open(lexiconFileName);
 
-	if (inputStream.fail())
+	if (inputStream.fail()) // If the input straem fails to open,
 	{
-		cout << "Unable to open lexicon file.\n";
+		cout << "Unable to open lexicon file.\n"; // we print a message saying we could not open the lexicon file,
 
+		// and exit our application, as there is nothing we can do without a valid lexicon.
+		// NOTE: If this implementation would be used as part of a different program, it would
+		// be much better if on failure, we throw an exception or somehow notify the caller
+		// that an error occurred - blindly exiting the program is usually not a good look
+		// for a constructor like this!
+		//
 		exit(0);
 	}
 
-	string word;
+	string word; // We will use this to hold the word we are currently reading from our lexicon file.
 
+	// While we successfully read another word from the input stream into our word variable...
 	while (inputStream >> word)
 	{
-		if (word.length() == len)
+		if (word.length() == len)	// if the word's length equals the length of the words that will be in our ladder,
 		{
-			lexicon.insert(word);
+			lexicon.insert(word);	// we insert the word into our lexicon.
 		}
 	}
 }
