@@ -234,16 +234,36 @@ int WordLadder::findInVector(vector<string> vec, string str)
 
 set<string> WordLadder::getNeighbors(string word)
 {
-	set<string> neighbors;
+	// This method finds the neighbors of the given
+	// word. Neighbors are found by looping through
+	// each	word inside of the lexicon, checking if
+	// they are a neighbor of the given word,
+	// and adding them to a set of neighbors if so.
+	//
+	set<string> neighbors; // We start with an empty set of neighbors
 
-	for (const string& dictWord : lexicon)
+	// We loop through every word inside of our
+	// lexicon. While we could have used a for loop
+	// with just the string type instead of a constant
+	// string reference, that would have been incredibly
+	// inefficient, as that would result in a useless string
+	// copy for EACH pass of the for loop.
+	for (const string& lexiconWord : lexicon)
 	{
-		if (getHammingDistance(word, dictWord) == 1)
+		// We check if the hamming distance between the
+		// given word and our lexicon's word is one.
+		// If it is, then the lexicon word only differs
+		// by a single character from the given word,
+		// so it IS a neighbor.
+		if (getHammingDistance(word, lexiconWord) == 1)
 		{
-			neighbors.insert(dictWord);
+			// Since we know the lexicon word is a neighbor,
+			// we insert it into our set.
+			neighbors.insert(lexiconWord);
 		}
 	}
 
+	// Now that we've determined all of our neighbors, we simply return them.
 	return neighbors;
 }
 
