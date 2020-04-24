@@ -155,8 +155,6 @@ void WordLadder::displayResult(vector<string> sequence)
 
 bool WordLadder::isWord(string str)
 {
-	// TODO: Figure out where this should be used -- maybe checking the first and end words from
-	// the console to see if we can even transition through words?
 	// This method checks to see if the given string
 	// is a word inside of the WordLadder's dictionary.
 	// If it is, true is returned.
