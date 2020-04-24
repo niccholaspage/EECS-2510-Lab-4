@@ -131,26 +131,53 @@ vector<string> WordLadder::getMinLadder(string start, string end)
 
 void WordLadder::displayResult(vector<string> sequence)
 {
-	if (sequence.empty())
+	// This method simply takes a word ladder sequence,
+	// which is just a vector of strings, and displays
+	// the steps taken to transition from the first word
+	// in the ladder to the last word, as well as
+	// outputting the number of steps needed to reach
+	// the final word.
+	//
+	if (sequence.empty()) // If our sequence is empty,
 	{
+		// we output that there was no solution. This means that
+		// with the loaded dicionary, there is no way to get between
+		// the beginning word to the ending word, changing only
+		// a single character at a time.
+		//
 		cout << "Word Ladder is empty - No Solution\n";
 
-		return;
+		return; // We return, as we've already displayed that our ladder was empty.
 	}
 
+	// Since we have a non-empty sequence, we output the required text
+	// from our lab document, simply stating what the shortest word ladder is,
+	// as well as the steps it takes to get there, which is simply the size of the
+	// sequence minus one, as the beginning word does NOT count as a step.
 	cout << "A Shortest Word Ladder (" << sequence.size() - 1 << " steps) is: ";
 
+	// We now need to loop through every item in our sequence so we can print
+	// out each word. While we could use a simple for loop with an index,
+	// this iterator style of looping seems more versatile to me and can be
+	// used with more container types, like a set. We simply start
+	// our iterator at the beginning of the sequence, and increment our iterator
+	// after every pass through an item. Once the iterator has reached the end,
+	// we are finished.
+	//
 	for (auto iterator = sequence.begin(); iterator != sequence.end(); iterator++)
 	{
+		// We simply dereference out iterator, which will give us the item in the
+		// sequence at the iterator's position, then output it.
 		cout << *iterator;
 
-		if (iterator != sequence.end())
+		// if we haven't reached the last item of our sequence yet,
+		if (iterator != sequence.end() - 1)
 		{
-			cout << " ";
+			cout << " "; // we display a space so that the sequence is properly spaced out.
 		}
 	}
 
-	cout << endl;
+	cout << endl; // Finally, we finish off with a new line since we've displayed our entire sequence.
 }
 
 bool WordLadder::isWord(string str)
