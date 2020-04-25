@@ -124,36 +124,49 @@ vector<string> WordLadder::getMinLadder(string start, string end)
 					// We get the index of s in our seenWords vector so that we can grab its predecessor.
 					int sIndex = findInVector(seenWords, s);
 
-					// We get the s's predecessor.
-					string& sPredecessor = predecessors[sIndex];
+					string& sPredecessor = predecessors[sIndex]; // We get the s's predecessor.
 
-					ladder.push_back(s);
+					ladder.push_back(s); // We start the ladder off with s, which will be our ending word.
 
+					// While s's predecessor is not our starting word, we
+					// still have words to add to our ladder, excluding the
+					// start word.
 					while (sPredecessor != start)
 					{
+						// We insert s's predecessor at the beginning of the ladder,
+						// as is the earliest word in the ladder so far.
 						ladder.insert(ladder.begin(), sPredecessor);
 
+						// We update our index of s in the seenWords vector so we can
+						// get the next predecessor.
 						sIndex = findInVector(seenWords, sPredecessor);
 
+						// We now get s's predecessor so that we can continue.
 						sPredecessor = predecessors[sIndex];
 					}
 
+					// At this point, our ladder contains all of the words
+					// for the word ladder in order, minus the starting word,
+					// so we go ahead and insert it into the beginning of our
+					// ladder.
 					ladder.insert(ladder.begin(), start);
 
-					return ladder;
+					return ladder; // We've now created the shortest word ladder for the two words, so we return it.
 				}
-				else
+				else // s was not our end word,
 				{
-					seenWords.push_back(s);
-					predecessors.push_back(qFront);
+					seenWords.push_back(s);			// so we push the s, the word we just saw, to our seen words,
+					predecessors.push_back(qFront); // as well as its predecessor, qFront to our predecessors.
 
-					queue.push_back(s);
+					queue.push_back(s); // Finally, we push s to the back of our queue.
 				}
 			}
 
 		}
 	}
 
+	// At this point, we return an empty ladder, as we weren't
+	// able to find a word ladder between the start and end words.
 	return ladder;
 }
 
