@@ -109,26 +109,33 @@ vector<string> WordLadder::getMinLadder(string start, string end)
 		// copy for EACH pass of the for loop.
 		for (const string& s : neighbors)
 		{
+			// We first check if we have seen s yet.
+			// If we have, we do not need to do see
+			// if it will take us to the ending word,
+			// as it means we have already checked it
+			// in the past.
 			if (findInVector(seenWords, s) == -1)
 			{
-				if (s == end)
+				if (s == end) // If s is the end word, we've found the end of our ladder!
 				{
-					seenWords.push_back(s);
-					predecessors.push_back(qFront);
+					seenWords.push_back(s);			// We push the s, the word we just saw, to our seen words,
+					predecessors.push_back(qFront); // as well as its predecessor, qFront to our predecessors.
 
+					// We get the index of s in our seenWords vector so that we can grab its predecessor.
 					int sIndex = findInVector(seenWords, s);
 
-					string& word = predecessors[sIndex];
+					// We get the s's predecessor.
+					string& sPredecessor = predecessors[sIndex];
 
 					ladder.push_back(s);
 
-					while (word != start)
+					while (sPredecessor != start)
 					{
-						ladder.insert(ladder.begin(), word);
+						ladder.insert(ladder.begin(), sPredecessor);
 
-						sIndex = findInVector(seenWords, word);
+						sIndex = findInVector(seenWords, sPredecessor);
 
-						word = predecessors[sIndex];
+						sPredecessor = predecessors[sIndex];
 					}
 
 					ladder.insert(ladder.begin(), start);
