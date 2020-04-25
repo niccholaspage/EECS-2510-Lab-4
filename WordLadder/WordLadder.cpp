@@ -63,6 +63,16 @@ WordLadder::WordLadder(string lexiconFileName, int len)
 
 vector<string> WordLadder::getMinLadder(string start, string end)
 {
+	// This method takes a start word and a end word and finds
+	// the shortest word ladder with the given start and end
+	// words. This method assumes that the start and end words
+	// are of the same length. After checking that both words
+	// are in the lexicon, a breadth-first search algorithm will
+	// find the shortest word ladder (meaning a sequence where every
+	// adjacent word has a hamming distance of one) and will return
+	// the shortest word ladder if one exists.
+	//
+	// We initialize an empty vector that will contain our ladder.
 	vector<string> ladder;
 
 	if (!isWord(start) || !isWord(end))
