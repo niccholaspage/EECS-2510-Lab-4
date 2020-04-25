@@ -75,7 +75,10 @@ vector<string> WordLadder::getMinLadder(string start, string end)
 	// We initialize an empty vector that will contain our ladder.
 	vector<string> ladder;
 
-	if (!isWord(start) || !isWord(end))
+	// If the start word or end word is NOT in the dictionary,
+	// or the start word IS the end word, we won't be able to find
+	// a valid word ladder, so we just return an empty ladder.
+	if (start == end || !isWord(start) || !isWord(end))
 	{
 		return ladder;
 	}
