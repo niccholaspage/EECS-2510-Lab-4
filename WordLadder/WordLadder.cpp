@@ -196,7 +196,7 @@ void WordLadder::displayResult(vector<string> sequence)
 	// after every pass through an item. Once the iterator has reached the end,
 	// we are finished.
 	//
-	for (auto iterator = sequence.begin(); iterator != sequence.end(); iterator++)
+	for (vector<string>::iterator iterator = sequence.begin(); iterator != sequence.end(); iterator++)
 	{
 		// We simply dereference out iterator, which will give us the item in the
 		// sequence at the iterator's position, then output it.
@@ -365,7 +365,7 @@ bool WordLadder::isWordLadder(vector<string> sequence)
 	// representing the last item in the sequence, and check
 	// each item's hamming distance with the item right after
 	// it.
-	for (auto iterator = sequence.begin(); iterator != sequence.end() - 1; iterator++)
+	for (vector<string>::iterator iterator = sequence.begin(); iterator != sequence.end() - 1; iterator++)
 	{
 		string& word = *iterator;			// We first get the word located at our position in the iterator,
 
