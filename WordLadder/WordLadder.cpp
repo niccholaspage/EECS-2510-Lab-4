@@ -318,18 +318,30 @@ bool WordLadder::isWordLadder(vector<string> sequence)
 		return false;
 	}
 
-	for (int i = 0; i < sequence.size() - 1; i++)
+	// To check if the sequence is a valid word ladder,
+	// we need to check if adjacent words have a hamming
+	// distance of one. To do this, we loop through
+	// every point in the sequence, except for the one
+	// representing the last item in the sequence, and check
+	// each item's hamming distance with the item right after
+	// it.
+	for (auto iterator = sequence.begin(); iterator != sequence.end() - 1; iterator++)
 	{
-		string& word = sequence[i];
+		string& word = *iterator;			// We first get the word located at our position in the iterator,
 
-		string& nextWord = sequence[i + 1];
+		string& nextWord = *(iterator + 1);	// as well as the word right after the word at our iterator.
 
+		// We now get the hamming distance between our two words.
+		// If it is not one, then this sequence is NOT a word ladder,
 		if (getHammingDistance(word, nextWord) != 1)
 		{
-			return false;
+			return false; // so we immediately return false.
 		}
 	}
 
+	// At this point, we know all adjacent words have a
+	// hamming distance of one, so we return true, as
+	// we know that we have a valid word ladder.
 	return true;
 }
 
