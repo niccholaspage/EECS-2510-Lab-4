@@ -9,7 +9,7 @@
 // Author:     Nicholas Nassar, University of Toledo
 // Class:      EECS 2510-001 Non-Linear Data Structures, Spring 2020
 // Instructor: Dr.Thomas
-// Date:       Apr 22, 2020
+// Date:       Apr 25, 2020
 // Copyright:  Copyright 2020 by Nicholas Nassar. All rights reserved.
 
 #include <iostream>
