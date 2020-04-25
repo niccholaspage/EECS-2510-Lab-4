@@ -171,6 +171,17 @@ void WordLadder::displayResult(vector<string> sequence)
 		return; // We return, as we've already displayed that our ladder was empty.
 	}
 
+	if (!isWordLadder(sequence)) // If our sequence isn't a valid word ladder,
+	{
+		// we print out a message stating that we did not pass a valid
+		// word ladder to display. This is here because we do not want
+		// to display that we have the shortest word ladder when we don't
+		// have a valid word ladder in the first place!
+		cout << "Word Ladder is invalid - the sequence passed in is not a valid word ladder.\n";
+
+		return; // We return, since we aren't going to be displaying the sequence.
+	}
+
 	// Since we have a non-empty sequence, we output the required text
 	// from our lab document, simply stating what the shortest word ladder is,
 	// as well as the steps it takes to get there, which is simply the size of the
