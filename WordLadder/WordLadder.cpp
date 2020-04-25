@@ -347,5 +347,11 @@ bool WordLadder::isWordLadder(vector<string> sequence)
 
 int WordLadder::getWordCount()
 {
+	// This method simply returns the total number of words
+	// in the lexicon, which can be used to ensure that words
+	// were properly loaded into the dictionary.
+	//
+	// We use set's size method to return the number of items
+	// in the set, which is the number of words in the lexicon.
 	return lexicon.size();
 }
