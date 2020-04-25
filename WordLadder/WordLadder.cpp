@@ -274,6 +274,14 @@ set<string> WordLadder::getNeighbors(string word)
 	//
 	set<string> neighbors; // We start with an empty set of neighbors
 
+	// Before looking for neighbors, we need to ensure
+	// that our word is contained in the lexicon. If it
+	// is not, we shouldn't even bother looking for neighbors,
+	if (!isWord(word))
+	{
+		return neighbors; // so we return an empty set of neighbors.
+	}
+
 	// We loop through every word inside of our
 	// lexicon. While we could have used a for loop
 	// with just the string type instead of a constant
