@@ -83,22 +83,30 @@ vector<string> WordLadder::getMinLadder(string start, string end)
 		return ladder;
 	}
 
-	vector<string> seenWords;
-	vector<string> predecessors;
-	list<string> queue;
+	vector<string> seenWords;		// We set up a vector to hold all the words we have seen.
+	vector<string> predecessors;	// We setup another to hold the predecessors of all the words we've seen.
+	list<string> queue;				// Finally, we set up a list to use as our queue for our BFS algorithm.
 
-	queue.push_back(start);
-	seenWords.push_back(start);
-	predecessors.push_back("");
+	queue.push_back(start);			// We start our queue off with the beginning word of our ladder,
+	seenWords.push_back(start);		// as well as the seen words with it as well.
+	predecessors.push_back("");		// Since our starting word doesn't have a predecessor, we make it an empty string.
 
-	while (!queue.empty())
+	while (!queue.empty()) // While we still have items in the queue,
 	{
-		string qFront = queue.front();
+		string qFront = queue.front();	// We grab the first item in the queue,
 
-		queue.pop_front();
+		queue.pop_front();				// and pop it off the queue.
 
+		// We now get all of qFront's neighbors, so we
+		// can check if we have found the ending word
+		// or a word that will lead us there.
 		set<string> neighbors = getNeighbors(qFront);
 
+		// We now loop through every neighbor. While we could have
+		// used a for loop with just the string type instead of a
+		// constant string reference, that would have been incredibly
+		// inefficient, as that would result in a useless string
+		// copy for EACH pass of the for loop.
 		for (const string& s : neighbors)
 		{
 			if (findInVector(seenWords, s) == -1)
@@ -135,7 +143,7 @@ vector<string> WordLadder::getMinLadder(string start, string end)
 					queue.push_back(s);
 				}
 			}
-			
+
 		}
 	}
 
