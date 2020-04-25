@@ -304,6 +304,15 @@ int WordLadder::getHammingDistance(string str1, string str2)
 
 bool WordLadder::isWordLadder(vector<string> sequence)
 {
+	// This method checks the given vector
+	// of strings and determines if it makes
+	// up a valid word ladder. A word ladder
+	// is defined as every pair of adjacent
+	// words having a hamming distance of 1.
+	//
+	// If we have less than two words in our sequence,
+	// by definition we do not have a word ladder,
+	// as there are no pairs of adjacent words.
 	if (sequence.size() < 2)
 	{
 		return false;
