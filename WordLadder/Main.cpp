@@ -28,7 +28,7 @@ void convertToUppercase(string& str)
 	//
 	for (unsigned int i = 0; i < str.length(); i++) // loop through each element of the string...
 	{
-		str[i] = toupper(str[i]); // and  set each character to the uppercase version of itself.
+		str[i] = toupper(str[i]); // and set each character to the uppercase version of itself.
 	}
 }
 
