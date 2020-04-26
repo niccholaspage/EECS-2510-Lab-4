@@ -59,6 +59,10 @@ WordLadder::WordLadder(string lexiconFileName, int len)
 			lexicon.insert(word);	// we insert the word into our lexicon.
 		}
 	}
+
+	// We've finished reading all of the words from
+	// the input stream, so we can close it now.
+	inputStream.close();
 }
 
 vector<string> WordLadder::getMinLadder(string start, string end)
